@@ -1,0 +1,283 @@
+.form {
+  position: absolute;
+  max-width: 430px;
+  width: 100%;
+  padding: 30px;
+  border-radius: 6px;
+  background: #fff;
+  margin-top: 30px;
+}
+
+header {
+  font-size: 28px;
+  font-weight: 600;
+  color: #013289;
+  text-align: center;
+}
+
+.form .field {
+  position: relative;
+  height: 50px;
+  width: 100%;
+  margin-top: 20px;
+  border-radius: 6px;
+}
+
+/* Login Button Style */
+.logbtn:hover {
+  cursor: pointer;
+  background: #0171d3a8;
+}
+
+/* Login and Register Style */
+#formContainer {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 8% auto;
+  padding: 30px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 500px;
+  overflow: hidden;
+}
+
+.form a {
+  color: #0171d3;
+  text-decoration: none;
+}
+
+.form-content a:hover {
+  text-decoration: underline;
+}
+
+.close {
+  color: #aaa;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  position: absolute;
+  top: -5px;
+  right: 11px;
+}
+
+.close:hover {
+  color: #3a3a3a;
+}
+
+.field {
+  position: relative;
+  height: 50px;
+  width: 100%;
+  margin-top: 35px;
+  border-radius: 6px;
+}
+
+.form-link .a,
+.form-link a {
+  color: #0171d3;
+  cursor: pointer;
+}
+
+.form-link .a:hover,
+.form-link a:hover {
+  text-decoration: underline;
+}
+
+.media-options a:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+.glge {
+  font-weight: 500;
+  opacity: 0.6;
+  color: #232836;
+}
+
+.glge:hover {
+  text-decoration: underline;
+}
+
+.field input,
+.field button {
+  height: 100%;
+  width: 100%;
+  border: none;
+  font-size: 16px;
+  font-weight: 400;
+  border-radius: 6px;
+}
+
+.field input {
+  outline: none;
+  padding: 0 15px;
+  border: 1px solid#CACACA;
+}
+
+.check_cont {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Customize the scrollbar */
+form::-webkit-scrollbar {
+  width: 5px;
+  /* Set the width of the scrollbar */
+}
+
+form::-webkit-scrollbar-thumb {
+  background-color: #acacac;
+  /* Set the color of the scrollbar thumb */
+}
+
+form::-webkit-scrollbar-track {
+  background-color: #eee;
+  /* Set the color of the scrollbar track */
+}
+
+.field input,
+.field button {
+  height: 100%;
+  width: 100%;
+  border: none;
+  font-size: 16px;
+  font-weight: 400;
+  border-radius: 6px;
+}
+
+.field input {
+  outline: none;
+  padding: 0 15px;
+  border: 1px solid#CACACA;
+}
+
+.field input:focus {
+  border-bottom-width: 2px;
+}
+
+.eye-icon {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  font-size: 18px;
+  color: #8b8b8b;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.field button {
+  color: #fff;
+  background-color: #0171d3;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.field .sub {
+  color: #fff;
+  background-color: #0171d3;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.field button:hover,
+.field .sub:hover {
+  background-color: #016dcb;
+}
+
+.form-link {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.form-link span,
+.form-link a {
+  font-size: 14px;
+  font-weight: 400;
+  color: #232836;
+}
+
+.form a {
+  color: #0171d3;
+  text-decoration: none;
+}
+
+.form-content a:hover {
+  text-decoration: underline;
+}
+
+.line {
+  position: relative;
+  height: 1px;
+  width: 100%;
+  margin: 24px 0;
+  background-color: #d4d4d4;
+}
+
+.line::before {
+  content: "Or";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  color: #8b8b8b;
+  padding: 0 15px;
+}
+
+.media-options a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+a.facebook {
+  color: #fff;
+  background-color: #4267b2;
+}
+
+a.facebook .facebook-icon {
+  height: 28px;
+  width: 28px;
+  color: #0171d3;
+  font-size: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+}
+
+.facebook-icon,
+img.google-img {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+}
+
+img.google-img {
+  height: 20px;
+  width: 20px;
+  object-fit: cover;
+}
+
+a.google {
+  border: 1px solid #cacaca;
+}
+
+a.google span {
+  font-weight: 500;
+  opacity: 0.6;
+  color: #232836;
+}
+
+@media screen and (max-width: 400px) {
+  .form {
+    padding: 20px 10px;
+  }
+}

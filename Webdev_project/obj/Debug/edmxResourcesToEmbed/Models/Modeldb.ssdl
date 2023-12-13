@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ActivityhubModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="role_table">
+    <Key>
+      <PropertyRef Name="role_Id" />
+    </Key>
+    <Property Name="role_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="roleName" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="user_table">
+    <Key>
+      <PropertyRef Name="user_Id" />
+    </Key>
+    <Property Name="user_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="firstname" Type="varchar" MaxLength="50" />
+    <Property Name="lastname" Type="varchar" MaxLength="50" />
+    <Property Name="gender" Type="varchar" MaxLength="50" />
+    <Property Name="email" Type="varchar" MaxLength="50" />
+    <Property Name="address" Type="varchar" MaxLength="50" />
+    <Property Name="password" Type="varchar" MaxLength="50" />
+    <Property Name="role_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_user_table_role_table">
+    <End Role="role_table" Type="Self.role_table" Multiplicity="1" />
+    <End Role="user_table" Type="Self.user_table" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="role_table">
+        <PropertyRef Name="role_Id" />
+      </Principal>
+      <Dependent Role="user_table">
+        <PropertyRef Name="role_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ActivityhubModelStoreContainer">
+    <EntitySet Name="role_table" EntityType="Self.role_table" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="user_table" EntityType="Self.user_table" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_user_table_role_table" Association="Self.FK_user_table_role_table">
+      <End Role="role_table" EntitySet="role_table" />
+      <End Role="user_table" EntitySet="user_table" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

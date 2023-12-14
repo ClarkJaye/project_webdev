@@ -1,0 +1,185 @@
+﻿
+.inline-btn{
+    border-radius: .5rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: #fff;
+    text-transform: capitalize;
+    padding: 1rem 3rem;
+    text-align: center;
+    margin-top: 1rem;
+    outline: none;
+    border: none;
+}
+
+
+
+    .inline-btn:hover,
+    .btn:hover {
+        background-color: #1abc9cba !important;
+    }
+
+a {
+    text-decoration: none;
+}
+
+.updateBtn {
+    margin-top: 1rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.heading {
+    text-align: center;
+    font-size: 2rem;
+    padding-top: 1rem;
+}
+
+
+.user-profile .info {
+    background-color: var(--white);
+    border-radius: .5rem;
+    padding: 2rem;
+}
+
+    .user-profile .info .user {
+        text-align: center;
+        padding: 1rem;
+    }
+
+        .user-profile .info .user img {
+            height: 14rem;
+            width: 14rem;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1rem;
+        }
+
+        .user-profile .info .user h3 {
+            font-size: 2rem;
+            color: var(--black);
+        }
+
+        .user-profile .info .user p {
+            font-size: 1.7rem;
+            color: var(--light-color);
+            padding: .3rem 0;
+        }
+
+
+    .user-profile .info .box-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+    }
+
+        .user-profile .info .box-container .box {
+            background-color: var(--light-bg);
+            border-radius: .5rem;
+            padding: 2rem;
+            flex: 1 1 25rem;
+        }
+
+            .user-profile .info .box-container .box .flex {
+                display: flex;
+                align-items: center;
+                gap: 2rem;
+                margin-bottom: 1rem;
+            }
+
+                .user-profile .info .box-container .box .flex i {
+                    font-size: 2rem;
+                    color: var(--white);
+                    background-color: var(--black);
+                    text-align: center;
+                    border-radius: .5rem;
+                    height: 5rem;
+                    width: 5rem;
+                    line-height: 4.9rem;
+                }
+
+                .user-profile .info .box-container .box .flex span {
+                    font-size: 2.5rem;
+                    color: var(--main-color);
+                }
+
+                .user-profile .info .box-container .box .flex p {
+                    color: var(--light-color);
+                    font-size: 1.7rem;
+                }
+
+
+
+
+
+.form-container {
+    min-height: calc(100vh - 20rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .form-container form {
+        background-color: #eee;
+        border-radius: .5rem;
+        padding: 2rem;
+        width: 30rem;
+    }
+
+        .form-container form h3 {
+            font-size: 25px;
+            text-transform: capitalize;
+            color: var(--black);
+            text-align: center;
+        }
+
+        .form-container form p {
+            font-size: 20px;
+            color: var(--light-color);
+            padding-top: 1rem;
+        }
+
+            .form-container form p span {
+                color: var(--red);
+            }
+
+        .form-container form .box {
+            font-size: 20px;
+            color: var(--black);
+            border-radius: .5rem;
+            padding: 10px;
+            background-color: var(--light-bg);
+            width: 100%;
+            margin: 0;
+        }
+
+
+.gedr span {
+    font-size: 20px;
+}
+
+
+.errorCont {
+    display: none;
+    position: relative;
+    padding: 10px;
+    text-align: center;
+    color: red;
+    background-color: #d5818154;
+    border-radius: 1rem;
+}
+
+    .errorCont .close {
+        position: absolute;
+        top: 5px;
+        right: 15px;
+        font-size: 25px;
+        color: black;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+        .errorCont .close:hover {
+            color: #1abc9c;
+        }

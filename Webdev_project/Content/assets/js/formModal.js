@@ -17,9 +17,15 @@ const allInputs = document.querySelectorAll('form input:not([type="submit"])');
 
 console.log(allInputs);
 
+
 formShowBtn.addEventListener("click", function () {
 
-  formContainer.style.display = "block";
+    formContainer.style.display = "block";
+
+    loginForm.style.display = "block";
+    signupForm.style.display = "none";
+
+
 
   if (
     signupBtn.addEventListener("click", () => {

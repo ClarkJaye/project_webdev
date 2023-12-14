@@ -1,6 +1,5 @@
 ﻿
-.inline-btn,
-.btn{
+.inline-btn{
     border-radius: .5rem;
     font-size: 1.2rem;
     cursor: pointer;
@@ -13,14 +12,15 @@
     border: none;
 }
 
+
+
     .inline-btn:hover,
     .btn:hover {
         background-color: #1abc9cba !important;
     }
 
-a{
+a {
     text-decoration: none;
-
 }
 
 .updateBtn {
@@ -30,8 +30,8 @@ a{
     justify-content: center;
 }
 
-.heading{
-    text-align:center;
+.heading {
+    text-align: center;
     font-size: 2rem;
     padding-top: 1rem;
 }
@@ -155,6 +155,31 @@ a{
         }
 
 
-.gedr span{
+.gedr span {
     font-size: 20px;
 }
+
+
+.errorCont {
+    display: none;
+    position: relative;
+    padding: 10px;
+    text-align: center;
+    color: red;
+    background-color: #d5818154;
+    border-radius: 1rem;
+}
+
+    .errorCont .close {
+        position: absolute;
+        top: 5px;
+        right: 15px;
+        font-size: 25px;
+        color: black;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+        .errorCont .close:hover {
+            color: #1abc9c;
+        }

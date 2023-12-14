@@ -298,7 +298,7 @@
         <div id="login_form">
             <header>Login</header>
 
-            <form action="LoginAndRedirect" method="POST">
+            <form action="Home/LoginAndRedirect" method="POST">
                 <div class="field input-field">
                     <input type="email" name="email" placeholder="Email" class="input" required />
                 </div>
@@ -326,6 +326,7 @@
                         <span id="signup_button" class="a">Signup</span>
                     </span>
                 </div>
+            
             </form>
         </div>
 
@@ -334,7 +335,7 @@
         <div id="signup_form" style="display: none; border-bottom: 2px solid #f1f1f1;">
             <header>Signup</header>
 
-            <form action="AddUserToDatabase" method="POST" style="height: 420px; overflow: auto; padding: 20px">
+            <form action="Home/AddUserToDatabase" method="POST" style="height: 420px; overflow: auto; padding: 20px">
                 <div class="field input-field">
                     <input type="text" name="firstname" placeholder="First Name" class="input" required />
                 </div>

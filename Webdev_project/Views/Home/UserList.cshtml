@@ -1,0 +1,219 @@
+﻿@model List<Webdev_project.Models.user_table>
+
+@{
+    ViewBag.Title = "UserList";
+    Layout = "~/Views/Shared/_UserListLayout.cshtml";
+}
+
+<section id="Userlist" style="padding-top: 104px;" class="user-profile">
+    <h1 class="heading">User List</h1>
+
+    <div class="card-table">
+        <div class="row">
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Firstname</th>
+                        <th>Lastname</th>
+                        <th>Gender</th>
+                        <th>Email</th>
+                        <th>Address</th>
+                        <th>Password</th>
+                        <th>Role</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var user in Model)
+                    {
+                        int loggedInUserId = (int)Session["UserId"];
+
+                        var rolename = "";
+                        if (user.role_Id == 1)
+                        {
+                            rolename = "admin";
+                        }
+                        else if (user.role_Id == 2)
+                        {
+                            rolename = "user";
+                        }
+
+                        if (user.user_Id != loggedInUserId)
+                        {
+                            <tr>
+                                <td>@user.user_Id</td>
+                                <td>@user.firstname</td>
+                                <td>@user.lastname</td>
+                                <td>@user.gender</td>
+                                <td>@user.email</td>
+                                <td>@user.address</td>
+                                <td>@user.password</td>
+                                <td>@rolename</td>
+                                <td>
+                                    <div class="act-btn">
+                                        @*@using (Html.BeginForm("EditUser", "Home", new { userId = user.user_Id }, FormMethod.Post))
+                                            {
+                                                <button id="editBtn" type="submit" class="bg-primary btn">Edit</button>
+                                            }*@
+                                        <button id="editBtn" type="button" class="bg-primary btn" onclick="openModal(@user.user_Id)">Edit</button>
+                                        @using (Html.BeginForm("DeleteUser", "Home", new { userId = user.user_Id }, FormMethod.Post))
+                                        {
+                                            <button id="deleteBtn" type="submit" class="bg-danger btn" onclick="return confirm('Are you sure you want to delete this user?')">Delete</button>
+                                        }
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- Modal -->
+<div id="formContainer" class="modal" style="display: none">
+    <div class="modal-content" style="max-width: 800px;">
+        <span class="close" onclick="closeModal()">&times;</span>
+
+        <header>Signup</header>
+
+        <form id="editUserForm" action="UpdateUserList" method="POST" style="height: 420px; overflow: auto; padding: 20px">
+            <input type="text" name="user_Id" id="userId"/>
+
+            <div class="field input-field">
+                <input type="text" name="firstname" placeholder="First Name" class="input" required />
+            </div>
+
+            <div class="field input-field">
+                <input type="text" name="lastname" placeholder="Last Name" class="input" required />
+            </div>
+
+            <div class="field-gender" style="margin-top: 10px; padding: 0 13px">
+                <label>Gender:</label><br />
+                <div style="
+                  display: flex;
+                  justify-content: space-around;
+                  align-items: center;
+                ">
+                    <label style="cursor: pointer">
+                        <input type="radio" name="gender" value="male" />
+                        <span>Male</span>
+                    </label>
+                    <label style="cursor: pointer">
+                        <input type="radio" name="gender" value="female" />
+                        <span>Female</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="field input-field">
+                <input type="email" name="email" placeholder="Email" class="input" required />
+            </div>
+
+            <div class="field input-field">
+                <input type="text" name="address" placeholder="Address" class="input" required />
+            </div>
+
+            <div class="field input-field">
+                <input type="text" name="password" placeholder="Password" class="input" required />
+            </div>
+
+            <div class="field-gender" style="margin-top: 10px; padding: 0 13px">
+                <label>Role:</label><br />
+                <div style="
+                  display: flex;
+                  justify-content: space-around;
+                  align-items: center;
+                ">
+                    <label style="cursor: pointer">
+                        <input type="radio" name="role" value="1" />
+                        <span>Admin</span>
+                    </label>
+                    <label style="cursor: pointer">
+                        <input type="radio" name="role" value="2" />
+                        <span>User</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="field button-field">
+                <input class="sub bg-primary" type="submit" id="registerBtn" name="submit" value="Update User" />
+            </div>
+
+        </form>
+    </div>
+</div>
+
+
+
+@* Link for the AJAX *@
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        // Handle click event on the "Edit" button
+        $(document).on('click', '.editBtn', function () {
+            var userId = $(this).data('userid');
+            openModal(userId);
+        });
+    });
+
+    function openModal(userId) {
+        // Retrieve the user data using an AJAX request
+        $.ajax({
+            url: '/Home/GetUser',
+            type: 'GET',
+            data: { userId: userId },
+            success: function (data) {
+                // Populate the form fields with the retrieved data
+                console.log(data);
+                $('#userId').val(data.userId);
+                $('input[name="firstname"]').val(data.firstname);
+                $('input[name="lastname"]').val(data.lastname);
+                $('input[name="gender"][value="' + data.gender + '"]').prop('checked', true);
+                $('input[name="address"]').val(data.address);
+                $('input[name="email"]').val(data.email);
+                $('input[name="password"]').val(data.password);
+                $('input[name="role"][value="' + data.roleId + '"]').prop('checked', true);
+
+                // Open the modal
+                $('#formContainer').show();
+            },
+            error: function () {
+                alert('Error retrieving user data.');
+            }
+        });
+    }
+
+
+    const formModal = document.querySelector("#formContainer");
+    const editUserForm = document.querySelector("#editUserForm");
+    
+
+    function closeModal() {
+        formModal.style.display = "none";
+        editUserForm.reset();
+    }
+
+    
+
+</script>
+
+@{
+    if (TempData["ShowLogoutConfirmation"] != null && (bool)TempData["ShowLogoutConfirmation"])
+    {
+        <script>
+            // Show the confirmation alert
+            var result = confirm("Are you sure you want to log out?");
+
+            // If the user confirms, redirect to the LogoutConfirmed action
+            if (result) {
+                window.location.href = "@Url.Action("LogoutConfirmed", "Home")";
+            }
+        </script>
+    }
+}

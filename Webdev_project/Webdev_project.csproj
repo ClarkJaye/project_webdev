@@ -158,6 +158,7 @@
   <ItemGroup>
     <Content Include="Content\assets\css\login_Form.css" />
     <Content Include="Content\assets\css\profile.css" />
+    <Content Include="Content\assets\css\userlist.css" />
     <Content Include="Content\assets\css\styles.css" />
     <Content Include="Content\assets\favicon.ico" />
     <Content Include="Content\assets\img\112.jpg" />
@@ -226,6 +227,10 @@
     <Content Include="Views\Shared\_Layout - Copy %282%29.cshtml" />
     <Content Include="Views\Shared\loginfailed.cshtml" />
     <Content Include="Views\Home\LoginFailed.cshtml" />
+    <Content Include="Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Views\Home\UserList.cshtml" />
+    <Content Include="Views\Shared\_UserListLayout.cshtml" />
+    <Content Include="Views\Home\AdminPage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

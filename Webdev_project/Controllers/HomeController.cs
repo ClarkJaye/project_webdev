@@ -108,6 +108,9 @@ namespace Webdev_project.Controllers
                 ActivityhubEntities2 fe = new ActivityhubEntities2();
                 fe.user_table.Add(use);
                 fe.SaveChanges();
+                // Store user ID in session
+                    Session["UserId"] = user.user_Id;
+                    Session["Role"] = user.role_Id;
 
                 return RedirectToAction("ProfilePage");
 
